@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/btn_context_menu"
+    android:clickable="true">
+
+    <LinearLayout
+        android:id="@+id/vGlobalMenuHeader"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/default_cover"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivMenuUserProfilePhoto"
+            android:layout_width="@dimen/global_menu_avatar_size"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:src="@drawable/head_default"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="登录后抽藏琴谱，手机平板多端同步"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

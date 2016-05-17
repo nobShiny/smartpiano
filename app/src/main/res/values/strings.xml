@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">smart piano</string>
+    <string name="loading_video_button_content">立即体验</string>
+    <string name="home">首页</string>
+    <string name="mine">我的</string>
+    <string name="favorite">收藏</string>
+    <string name="player_title">视频教程</string>
+    <string name="player_content">手把手教程，入门基础，热门歌曲都能轻松学会</string>
+    <string name="lesson_title">跟灯练习</string>
+    <string name="lesson_content">海量曲库，互动跟弹，零基础也能5分钟轻松上手</string>
+    <string name="kara_title">卡拉游戏</string>
+    <string name="kara_content">玩游戏也可以练钢琴，还可以亲子互动</string>
+</resources>
