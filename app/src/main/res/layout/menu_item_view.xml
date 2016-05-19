@@ -5,3 +5,11 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@drawable/btn_default_light"
     android:src="@drawable/ic_root_category_search" />
+<!--
+<com.quinny898.library.persistentsearch.SearchBox
+    android:id="@+id/searchbox"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="?attr/actionBarSize"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"/>-->

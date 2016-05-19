@@ -10,4 +10,8 @@
     <string name="lesson_content">海量曲库，互动跟弹，零基础也能5分钟轻松上手</string>
     <string name="kara_title">卡拉游戏</string>
     <string name="kara_content">玩游戏也可以练钢琴，还可以亲子互动</string>
+    
+    <string name="video_base_lesson">基础教程</string>
+    <string name="video_advance_lesson">进阶教程</string>
+    <string name="press_again_exit_app">再按一次返回退出</string>
 </resources>

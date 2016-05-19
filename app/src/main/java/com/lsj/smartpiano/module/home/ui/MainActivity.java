@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,8 +25,6 @@ public class MainActivity extends BaseDrawerActivity {
 
     @Bind(R.id.rvList)
     RecyclerView rvList;
-    @Bind(R.id.content)
-    CoordinatorLayout clContent;
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
     private int[] str_title = {R.string.player_title, R.string.lesson_title, R.string.kara_title};
@@ -37,7 +34,6 @@ public class MainActivity extends BaseDrawerActivity {
 
     private HomeListAdapter homeListAdapter;
     private boolean pendingIntroAnimation;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +78,11 @@ public class MainActivity extends BaseDrawerActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(MainActivity.this, "sousuo", Toast.LENGTH_SHORT).show();
+        int id = item.getItemId();
+        if(id==R.id.action_search){
+            Toast.makeText(MainActivity.this, "sousuo", Toast.LENGTH_SHORT).show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
