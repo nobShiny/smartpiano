@@ -21,17 +21,18 @@
             android:name=".module.launch.activities.SplashActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".module.home.ui.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".module.home.ui.MainActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
-            />
         <activity
             android:name=".module.course.ui.CourseInfoActivity"
             android:configChanges="orientation|screenSize"
@@ -44,6 +45,13 @@
             />
         <activity
             android:name=".module.karagame.ui.KaraGameActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".module.mine.ui.MineActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             />

@@ -25,4 +25,12 @@
         <enum name="Bottom" value="3"/>
     </attr>
     </declare-styleable>
+
+    <declare-styleable name="ExpandPopTabView">
+        <attr name="tab_toggle_btn_bg" format="reference"/>
+        <attr name="tab_toggle_btn_color" format="color"/>
+        <attr name="tab_toggle_btn_font_color" format="color"/>
+        <attr name="tab_toggle_btn_font_size" format="dimension"/>
+        <attr name="tab_pop_bg_color" format="color"/>
+    </declare-styleable>
 </resources>

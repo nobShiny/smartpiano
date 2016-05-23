@@ -14,7 +14,8 @@ import com.lsj.smartpiano.R;
 import com.lsj.smartpiano.module.video.adapter.VideoBaseListAdapater;
 import com.lsj.smartpiano.module.video.bean.BaseListBean;
 import com.lsj.smartpiano.module.video.customui.TimeLineLayout;
-import com.lsj.smartpiano.module.video.net.SmartPianoRestClient;
+import com.lsj.smartpiano.module.video.net.SmartPianoApiInterface;
+import com.lsj.smartpiano.common.net.SmartPianoRestClient;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
@@ -72,7 +73,7 @@ public class BaseVideoFragment extends Fragment {
     }
 
     private void getServerData() {
-        SmartPianoRestClient.SmartPianoApiInterface service = SmartPianoRestClient.getClient();
+        SmartPianoApiInterface service = SmartPianoRestClient.getClient();
         Call<BaseListBean> call = service.getBaseList("1000", "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
         call.enqueue(new Callback<BaseListBean>() {
             @Override

@@ -14,4 +14,16 @@
     <string name="video_base_lesson">基础教程</string>
     <string name="video_advance_lesson">进阶教程</string>
     <string name="press_again_exit_app">再按一次返回退出</string>
+    <string name="load_more_text">正在加载...</string>
+    <string name="no_content">没有更多内容</string>
+
+    <string name="mine_login">登录后收藏琴谱，手机平板多端同步</string>
+    <string name="mine_collection">我的收藏</string>
+    <string name="mine_histroy">历史记录</string>
+    <string name="mine_record">我的录音</string>
+    <string name="mine_tools">学习工具</string>
+    <string name="mine_check">音色设置</string>
+    <string name="mine_about">关于The ONE</string>
+    <string name="mine_feedback">反馈</string>
+
 </resources>

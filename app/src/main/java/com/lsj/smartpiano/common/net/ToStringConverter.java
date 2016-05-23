@@ -1,4 +1,4 @@
-package com.lsj.smartpiano.module.video.net;
+package com.lsj.smartpiano.common.net;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;

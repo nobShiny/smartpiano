@@ -83,7 +83,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 //        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
 //            mDrawerLayout.closeDrawer(Gravity.LEFT);
@@ -91,5 +91,5 @@ public class BaseActivity extends AppCompatActivity {
             doExitApp();
 //        }
 
-    }
+    }*/
 }

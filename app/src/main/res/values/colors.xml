@@ -17,8 +17,13 @@
     <color name="home_list_bg_blue">#03a9f4</color>
     <color name="home_list_bg_purple">#d500f9</color>
 
-    <color name="text_color">#000000</color>
+    <!--<color name="text_color">#000000</color>-->
     <color name="theme_bg_color">#eeeeee</color>
+    <color name="text_color">#333333</color>
+
+    <color name="refresh_state_start">#00bcd4</color>
+    <color name="refresh_state_wait">#ff9800</color>
+    <color name="refresh_state_end">#5677fc</color>
 
 
 </resources>
