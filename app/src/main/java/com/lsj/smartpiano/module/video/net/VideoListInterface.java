@@ -5,7 +5,7 @@ import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
-public interface SmartPianoApiInterface {
+public interface VideoListInterface {
 
         @GET("/video_course/series")
         Call<BaseListBean> getBaseList(@Query("count") String count,

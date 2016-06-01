@@ -25,5 +25,8 @@
     <string name="mine_check">音色设置</string>
     <string name="mine_about">关于The ONE</string>
     <string name="mine_feedback">反馈</string>
+    <string name="edit_text_search">输入您要找的曲谱/视频/卡拉游戏</string>
+    <string name="database_name">database_log</string>
+
 
 </resources>

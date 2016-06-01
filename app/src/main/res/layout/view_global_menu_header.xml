@@ -9,7 +9,6 @@
         android:id="@+id/vGlobalMenuHeader"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/default_cover"
         android:orientation="vertical">
 

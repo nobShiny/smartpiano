@@ -1,7 +1,7 @@
-package com.lsj.smartpiano.common.net;
+package com.lsj.smartpiano.module.search.net;
 
 import com.lsj.smartpiano.common.constant.SmartPianoAPI;
-import com.lsj.smartpiano.module.video.net.SmartPianoApiInterface;
+import com.lsj.smartpiano.common.net.ToStringConverter;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Response;
@@ -15,11 +15,11 @@ import retrofit.Retrofit;
  * Created by shiny_jia
  * on 2016-05-18 15:25.
  */
-public class SmartPianoRestClient<T> {
-    private static SmartPianoApiInterface smartPianoApiInterface ;
+public class SearchVideoListRest {
+    private static SearchListInterface interfaceApi;
 
-    public static SmartPianoApiInterface getClient(/*String modulUrl*/){
-        if (smartPianoApiInterface == null) {
+    public static SearchListInterface getClient(/*String modulUrl*/){
+        if (interfaceApi == null) {
 
             OkHttpClient okClient = new OkHttpClient();
             okClient.interceptors().add(new Interceptor() {
@@ -36,9 +36,9 @@ public class SmartPianoRestClient<T> {
                     .client(okClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            smartPianoApiInterface = client.create(SmartPianoApiInterface.class);
+            interfaceApi = client.create(SearchListInterface.class);
         }
-        return smartPianoApiInterface ;
+        return interfaceApi ;
     }
 
 }

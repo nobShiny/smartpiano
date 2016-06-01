@@ -1,10 +1,10 @@
 package com.lsj.smartpiano.module.course.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.lsj.smartpiano.R;
-import com.lsj.smartpiano.common.activity.BaseActivity;
 import com.lsj.smartpiano.common.customui.ExpandPopTabView;
 import com.lsj.smartpiano.common.customui.PullLoadMoreRecyclerView;
 
@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
  * Created by shiny_jia
  * on 2016-05-17 14:46.
  */
-public class CourseInfoActivity extends BaseActivity {
+public class CourseInfoActivity extends Activity {
 
     @Bind(R.id.expandtab_view)
     ExpandPopTabView expandtabView;
