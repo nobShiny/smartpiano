@@ -1,5 +1,6 @@
 package com.lsj.smartpiano.module.video.net;
 
+import com.lsj.smartpiano.module.video.bean.AdvanceListBean;
 import com.lsj.smartpiano.module.video.bean.BaseListBean;
 import retrofit.Call;
 import retrofit.http.GET;
@@ -17,17 +18,17 @@ public interface VideoListInterface {
                                        @Query("pType") String pType,
                                        @Query("lan") String lan
         );
-        @GET("/single/adult")
-        Call<BaseListBean> getAdvanceList(@Query("appver") String appver,
-                                          @Query("platform") String platform,
-                                          @Query("channel") String channel,
-                                          @Query("hd") String hd,
-                                          @Query("connection") String connection,
-                                          @Query("pType") String pType,
-                                          @Query("lan") String lan
+        @GET("/video_course/single/adult")
+        Call<AdvanceListBean> getAdvanceList(@Query("appver") String appver,
+                                             @Query("platform") String platform,
+                                             @Query("channel") String channel,
+                                             @Query("hd") String hd,
+                                             @Query("connection") String connection,
+                                             @Query("pType") String pType,
+                                             @Query("lan") String lan
         );
-        @GET("/single/adult")
-        Call<BaseListBean> getAdvanceListWithLevel(@Query("level") String level,
+        @GET("/video_course/single/adult")
+        Call<AdvanceListBean> getAdvanceListWithLevel(@Query("level") String level,
                                           @Query("appver") String appver,
                                           @Query("platform") String platform,
                                           @Query("channel") String channel,

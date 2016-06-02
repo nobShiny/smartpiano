@@ -26,9 +26,9 @@ public class VideoFragmentPasgerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 1) {
+        if (position == 0) {
             return BaseVideoFragment.newInstance(position + 1);
-        } else if (position == 2) {
+        } else if (position == 1) {
             return AdvanceVideoFragment.newInstance(position + 1);
         }
         return BaseVideoFragment.newInstance(position + 1);

@@ -9,27 +9,10 @@ import java.util.List;
 public class AdvanceListBean {
 
     /**
-     * code : 1
-     * hostname : piano-aws-1tai-com
-     * oversea : false
-     * cost : 20
-     * timestamp : 1463563565841
-     */
-
-    private MetaEntity meta;
-    /**
-     * courses : {"hasNext":false,"list":[{"purshaseType":0,"recommendPic":"http://dl.v1.1tai.com/video_courses/zh/mimi/recommend_pic.png","desc":"《秘密》周杰伦在2007年自导自演的电影处女作《不能说的秘密》中的插曲。周董亲自包办了整个电影的配乐部分，并创作了这首有些复古又流行的钢琴作品。这首《秘密》分为慢板和加长快板两个版本，分别出现在电影里男主角在钢琴前来回穿越的剧情中。这首为慢板。 知识点：左右手分别练+指法的重要性","teacher":{"name":"佚名","id":0},"lessonCount":3,"pic":"http://dl.v1.1tai.com/video_courses/zh/mimi/pic.jpg","knowledges":null,"name":"秘密","id":59}]}
+     * courses : {"hasNext":false,"list":[{"purshaseType":0,"recommendPic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/recommend_pic.png","desc":"The ONE智能钢琴视频教学直播间主要面向钢琴零基础用户。 我们在课程中会逐步教授识谱，手型，指法，乐理等钢琴基础知识。 直播课程主页：http://online.1tai.com 参加直播课程请加QQ群：418084580","teacher":{"name":"佚名","id":0},"lessonCount":19,"pic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/pic.jpg","knowledges":"","name":"直播课－虫儿飞（初级琴童）","id":65}]}
      */
 
     private DataEntity data;
-
-    public MetaEntity getMeta() {
-        return meta;
-    }
-
-    public void setMeta(MetaEntity meta) {
-        this.meta = meta;
-    }
 
     public DataEntity getData() {
         return data;
@@ -39,58 +22,10 @@ public class AdvanceListBean {
         this.data = data;
     }
 
-    public static class MetaEntity {
-        private int code;
-        private String hostname;
-        private boolean oversea;
-        private int cost;
-        private long timestamp;
-
-        public int getCode() {
-            return code;
-        }
-
-        public void setCode(int code) {
-            this.code = code;
-        }
-
-        public String getHostname() {
-            return hostname;
-        }
-
-        public void setHostname(String hostname) {
-            this.hostname = hostname;
-        }
-
-        public boolean isOversea() {
-            return oversea;
-        }
-
-        public void setOversea(boolean oversea) {
-            this.oversea = oversea;
-        }
-
-        public int getCost() {
-            return cost;
-        }
-
-        public void setCost(int cost) {
-            this.cost = cost;
-        }
-
-        public long getTimestamp() {
-            return timestamp;
-        }
-
-        public void setTimestamp(long timestamp) {
-            this.timestamp = timestamp;
-        }
-    }
-
     public static class DataEntity {
         /**
          * hasNext : false
-         * list : [{"purshaseType":0,"recommendPic":"http://dl.v1.1tai.com/video_courses/zh/mimi/recommend_pic.png","desc":"《秘密》周杰伦在2007年自导自演的电影处女作《不能说的秘密》中的插曲。周董亲自包办了整个电影的配乐部分，并创作了这首有些复古又流行的钢琴作品。这首《秘密》分为慢板和加长快板两个版本，分别出现在电影里男主角在钢琴前来回穿越的剧情中。这首为慢板。 知识点：左右手分别练+指法的重要性","teacher":{"name":"佚名","id":0},"lessonCount":3,"pic":"http://dl.v1.1tai.com/video_courses/zh/mimi/pic.jpg","knowledges":null,"name":"秘密","id":59}]
+         * list : [{"purshaseType":0,"recommendPic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/recommend_pic.png","desc":"The ONE智能钢琴视频教学直播间主要面向钢琴零基础用户。 我们在课程中会逐步教授识谱，手型，指法，乐理等钢琴基础知识。 直播课程主页：http://online.1tai.com 参加直播课程请加QQ群：418084580","teacher":{"name":"佚名","id":0},"lessonCount":19,"pic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/pic.jpg","knowledges":"","name":"直播课－虫儿飞（初级琴童）","id":65}]
          */
 
         private CoursesEntity courses;
@@ -107,14 +42,14 @@ public class AdvanceListBean {
             private boolean hasNext;
             /**
              * purshaseType : 0
-             * recommendPic : http://dl.v1.1tai.com/video_courses/zh/mimi/recommend_pic.png
-             * desc : 《秘密》周杰伦在2007年自导自演的电影处女作《不能说的秘密》中的插曲。周董亲自包办了整个电影的配乐部分，并创作了这首有些复古又流行的钢琴作品。这首《秘密》分为慢板和加长快板两个版本，分别出现在电影里男主角在钢琴前来回穿越的剧情中。这首为慢板。 知识点：左右手分别练+指法的重要性
+             * recommendPic : http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/recommend_pic.png
+             * desc : The ONE智能钢琴视频教学直播间主要面向钢琴零基础用户。 我们在课程中会逐步教授识谱，手型，指法，乐理等钢琴基础知识。 直播课程主页：http://online.1tai.com 参加直播课程请加QQ群：418084580
              * teacher : {"name":"佚名","id":0}
-             * lessonCount : 3
-             * pic : http://dl.v1.1tai.com/video_courses/zh/mimi/pic.jpg
-             * knowledges : null
-             * name : 秘密
-             * id : 59
+             * lessonCount : 19
+             * pic : http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/pic.jpg
+             * knowledges :
+             * name : 直播课－虫儿飞（初级琴童）
+             * id : 65
              */
 
             private List<ListEntity> list;
@@ -147,7 +82,7 @@ public class AdvanceListBean {
                 private TeacherEntity teacher;
                 private int lessonCount;
                 private String pic;
-                private Object knowledges;
+                private String knowledges;
                 private String name;
                 private int id;
 
@@ -199,11 +134,11 @@ public class AdvanceListBean {
                     this.pic = pic;
                 }
 
-                public Object getKnowledges() {
+                public String getKnowledges() {
                     return knowledges;
                 }
 
-                public void setKnowledges(Object knowledges) {
+                public void setKnowledges(String knowledges) {
                     this.knowledges = knowledges;
                 }
 

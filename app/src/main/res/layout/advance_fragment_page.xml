@@ -4,11 +4,20 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-
-
-    <android.support.v7.widget.RecyclerView
+    <com.lsj.smartpiano.module.video.customui.PullLoadMoreRecyclerView
+        android:id="@+id/advance_recyclerView_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/theme_bg_color"
+        android:layout_margin="4dp"/>
 
-    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="empty"
+        android:textSize="25sp"
+        android:visibility="gone"
+        />
 </LinearLayout>

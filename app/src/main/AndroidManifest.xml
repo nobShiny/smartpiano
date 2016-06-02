@@ -51,7 +51,7 @@
 
 
         <activity
-            android:name=".module.mine.ui.MineActivity"
+            android:name=".module.video.ui.VideoViewPlayerActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
             />

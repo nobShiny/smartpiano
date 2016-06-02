@@ -62,7 +62,7 @@ public class BaseActivity extends AppCompatActivity {
     ListView listView;
     @Bind(R.id.card_search)
     CardView card_search;
-    @Bind(R.id.marker_progress)
+//    @Bind(R.id.marker_progress)
     ProgressBar marker_progress;
     @Bind(R.id.image_search_back)
     ImageView image_search_back;
@@ -85,6 +85,7 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void bindViews() {
         ButterKnife.bind(this);
+        marker_progress = (ProgressBar) findViewById(R.id.marker_progress);
         marker_progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"),
                         android.graphics.PorterDuff.Mode.MULTIPLY);
         initiateSearch = new InitiateSearch();

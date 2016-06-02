@@ -27,6 +27,7 @@
     <string name="mine_feedback">反馈</string>
     <string name="edit_text_search">输入您要找的曲谱/视频/卡拉游戏</string>
     <string name="database_name">database_log</string>
+    <string name="load_fail">暂时没有网络连接</string>
 
 
 </resources>
