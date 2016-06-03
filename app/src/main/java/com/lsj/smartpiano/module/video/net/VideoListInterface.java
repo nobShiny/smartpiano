@@ -8,7 +8,7 @@ import retrofit.http.Query;
 
 public interface VideoListInterface {
 
-        @GET("/video_course/series")
+        @GET("video_course/series")
         Call<BaseListBean> getBaseList(@Query("count") String count,
                                        @Query("appver") String appver,
                                        @Query("platform") String platform,
@@ -18,7 +18,7 @@ public interface VideoListInterface {
                                        @Query("pType") String pType,
                                        @Query("lan") String lan
         );
-        @GET("/video_course/single/adult")
+        @GET("video_course/single/adult")
         Call<AdvanceListBean> getAdvanceList(@Query("appver") String appver,
                                              @Query("platform") String platform,
                                              @Query("channel") String channel,
@@ -27,7 +27,7 @@ public interface VideoListInterface {
                                              @Query("pType") String pType,
                                              @Query("lan") String lan
         );
-        @GET("/video_course/single/adult")
+        @GET("video_course/single/adult")
         Call<AdvanceListBean> getAdvanceListWithLevel(@Query("level") String level,
                                           @Query("appver") String appver,
                                           @Query("platform") String platform,

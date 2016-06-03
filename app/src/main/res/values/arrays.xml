@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="kara_level">
+        <item>全部级别</item>
+        <item>入门</item>
+        <item>初级</item>
+        <item>中级</item>
+        <item>高级</item>
+        <item>专家</item>
+    </string-array>
+
+    <string-array name="kara_category">
+        <item>娱乐</item>
+        <item>学习</item>
+        <item>弹唱</item>
+        <item>亲子</item>
+    </string-array>
+
+    <string-array name="course_level">
+        <item>全部级别</item>
+        <item>一级难度</item>
+        <item>二级难度</item>
+        <item>三级难度</item>
+        <item>五级难度</item>
+        <item>六级难度</item>
+        <item>七级难度</item>
+        <item>八级难度</item>
+        <item>九级难度</item>
+        <item>十级难度</item>
+    </string-array>
+
+</resources>

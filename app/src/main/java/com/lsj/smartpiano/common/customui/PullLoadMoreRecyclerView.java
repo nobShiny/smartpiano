@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lsj.smartpiano.R;
-import com.lsj.smartpiano.common.utils.DividerGridItemDecoration;
 import com.lsj.smartpiano.common.utils.DividerItemDecoration;
 
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
@@ -86,7 +85,7 @@ public class PullLoadMoreRecyclerView extends LinearLayout {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, spanCount);
         gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(mContext));
+//        mRecyclerView.addItemDecoration(new DividerGridItemDecoration(mContext));
         mRecyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
     }
 

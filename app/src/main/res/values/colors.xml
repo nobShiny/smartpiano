@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5677fc</color>
+    <color name="colorPrimary">#ff6d00</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
@@ -25,5 +25,5 @@
     <color name="refresh_state_wait">#ff9800</color>
     <color name="refresh_state_end">#5677fc</color>
 
-
+    <color name="expand_bg">#999</color>
 </resources>

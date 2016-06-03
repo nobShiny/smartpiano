@@ -58,7 +58,7 @@ public class BaseActivity extends AppCompatActivity {
     RelativeLayout view_search;
     @Bind(R.id.listContainer)
     ListView listContainer;
-    @Bind(R.id.listView)
+//    @Bind(R.id.listView)
     ListView listView;
     @Bind(R.id.card_search)
     CardView card_search;
@@ -90,6 +90,7 @@ public class BaseActivity extends AppCompatActivity {
                         android.graphics.PorterDuff.Mode.MULTIPLY);
         initiateSearch = new InitiateSearch();
         logQuickSearchAdapter = new LogQuickSearchAdapter(this, 0, LogQuickSearch.all());
+        listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(logQuickSearchAdapter);
 
         setupToolbar();
