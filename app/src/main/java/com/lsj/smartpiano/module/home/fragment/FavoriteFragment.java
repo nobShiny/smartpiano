@@ -7,4 +7,5 @@ import android.support.v4.app.Fragment;
  * on 2016-05-31 15:31.
  */
 public class FavoriteFragment extends Fragment {
+
 }

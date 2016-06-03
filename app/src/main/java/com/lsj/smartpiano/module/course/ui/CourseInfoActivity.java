@@ -77,6 +77,23 @@ public class CourseInfoActivity extends AppCompatActivity {
         initContentView();
         initData();
         getCourseCategoryData();
+        recyclerViewList.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+            @Override
+            public void onRefresh() {
+                if(condition.getLevel()==0){
+                    getSelectCategoryData(condition.getCategory()==0?"598":String.valueOf(condition.getCategory()));
+                }else{
+                    getSelectCategoryWithLevelData(condition.getCategory()==0?"598":
+                            String.valueOf(condition.getCategory()),String.valueOf(condition.getLevel()));
+                }
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                recyclerViewList.setPullLoadMoreCompleted();
+            }
+        });
     }
 
     private void initContentView() {
@@ -86,8 +103,9 @@ public class CourseInfoActivity extends AppCompatActivity {
 
     private void initData() {
         Call<CourseListBean> call = service.getCourseList(
-                "404",
+                "598",
                 "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
+        condition.setCategory(598);
         call.enqueue(new Callback<CourseListBean>() {
             @Override
             public void onResponse(Response<CourseListBean> response) {
@@ -170,9 +188,9 @@ public class CourseInfoActivity extends AppCompatActivity {
                             }
                         }
                         if(condition.getLevel()==0){
-                            getSelectCategoryData();
+                            getSelectCategoryData(String.valueOf(condition.getCategory()));
                         }else{
-                            getSelectCategoryWithLevelData();
+                            getSelectCategoryWithLevelData(String.valueOf(condition.getCategory()),String.valueOf(condition.getLevel()));
                         }
                     }
 
@@ -180,10 +198,9 @@ public class CourseInfoActivity extends AppCompatActivity {
         expandTabView.addItemToExpandTab(defaultShowText, popOneListView);
     }
 
-    private void getSelectCategoryWithLevelData() {
+    private void getSelectCategoryWithLevelData(String strCategory,String strLevel) {
         Call<CourseListBean> call = service.getCourseWithLevelList(
-                String.valueOf(condition.getCategory()),
-                String.valueOf(condition.getLevel()),
+                strCategory,strLevel,
                 "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
         call.enqueue(new Callback<CourseListBean>() {
             @Override
@@ -198,9 +215,9 @@ public class CourseInfoActivity extends AppCompatActivity {
         });
     }
 
-    private void getSelectCategoryData() {
+    private void getSelectCategoryData(String strCategory) {
         Call<CourseListBean> call = service.getCourseList(
-                String.valueOf(condition.getCategory()),
+                strCategory,
                 "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
         call.enqueue(new Callback<CourseListBean>() {
             @Override

@@ -3,12 +3,16 @@ package com.lsj.smartpiano.module.home.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.lsj.smartpiano.R;
 import com.lsj.smartpiano.common.utils.ScreenUtils;
 import com.lsj.smartpiano.module.home.fragment.HomeFragment;
+import com.lsj.smartpiano.module.home.fragment.MineFragment;
 
 public class MainActivity extends BaseDrawerActivity {
 
@@ -25,11 +29,42 @@ public class MainActivity extends BaseDrawerActivity {
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
         }
+        showDefaultFragment();
+        initNavigationSelectClick();
+    }
+
+    private void showDefaultFragment() {
         homeFragment = new HomeFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container_list,homeFragment);
         fragmentTransaction.commit();
+    }
 
+
+    private void initNavigationSelectClick() {
+        vNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container_list,
+                                new HomeFragment()).commit();
+                        break;
+                    case R.id.menu_favorite:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flContentRoot,
+//                                new FavoriteFragment()).commit();
+                        Toast.makeText(MainActivity.this, "待开发", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.menu_mine:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container_list,
+                                new MineFragment()).commit();
+                        break;
+                }
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
  /*   @Override
