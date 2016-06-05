@@ -1,7 +1,7 @@
 package com.lsj.smartpiano.module.video.ui;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
-import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -20,6 +21,7 @@ import com.lsj.smartpiano.module.video.utils.VideoIntent;
 import java.io.File;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by shiny_jia
@@ -39,16 +41,23 @@ public class VideoViewPlayerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFormat(PixelFormat.TRANSLUCENT);
         setContentView(R.layout.videoview_player_activity);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        ButterKnife.bind(this);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        videoViewPlayer.setLayoutParams(layoutParams);
+
         //自带的播放控制器
         videoViewPlayer.setMediaController(new MediaController(this));
         videoViewPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-//                loading_textview.setVisibility(View.GONE);
-//                textViewLoadFail.setVisibility(View.GONE);
-//                textViewLoadFail.setText(getResources().getString(R.string.load_fail));
+                loading_textview.setVisibility(View.GONE);
             }
         });
         Bundle vPath = getIntent().getExtras();
@@ -87,8 +96,10 @@ public class VideoViewPlayerActivity extends AppCompatActivity {
         } else {
             if (!NetWorkUtil.isWifiConnected() && NetWorkUtil.isMobileConnected()) {
                 final Uri vidUri = videoUri;
-                new AlertDialog.Builder(this).setTitle("温馨提示!").setMessage("当前状态为数据网络，将耗费流量，继续播放吗?").
-                        setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(this)
+                        .setTitle("温馨提示!")
+                        .setMessage("当前状态为数据网络，将耗费流量，继续播放吗?")
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();

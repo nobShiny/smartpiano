@@ -57,8 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@color/text_color"
-            android:textSize="12sp"/>
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
 
         <com.lsj.smartpiano.module.video.customui.PullLoadMoreRecyclerView
             android:id="@+id/advance_content_list"

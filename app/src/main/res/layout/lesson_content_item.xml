@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:gravity="center_vertical"
               android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_content_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -14,15 +14,17 @@
         android:padding="8dp"
         android:textSize="14sp"/>
     <ImageView
-        android:id="@+id/iv_icon"
+        android:id="@+id/iv_content_icon"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
         />
-    <ImageView
+    <ProgressBar
         android:id="@+id/btn_download"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleHorizontal"
         />
 </LinearLayout>

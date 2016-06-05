@@ -26,4 +26,5 @@
     <color name="refresh_state_end">#5677fc</color>
 
     <color name="expand_bg">#999</color>
+    <color name="item_bg">#00FFCCFF</color>
 </resources>

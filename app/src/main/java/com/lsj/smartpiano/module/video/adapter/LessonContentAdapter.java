@@ -2,11 +2,11 @@ package com.lsj.smartpiano.module.video.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lsj.smartpiano.R;
@@ -61,12 +61,6 @@ public class LessonContentAdapter extends RecyclerView.Adapter<LessonContentAdap
                     mOnItemClickListener.onItemClick(holder.itemView, position);
             }
         });
-        Log.d("LessonContentAdapter", "111111::"+dataList.get(position).getTitle());
-//        if(!dataList.get(position).getMovieUrl().equals("")){
-//            Log.d("LessonContentAdapter", "下载中：" + dataList.get(position).getMovieUrl());
-//        }else{
-//            Toast.makeText(mContext, "服务器繁忙，请稍后再试", Toast.LENGTH_SHORT).show();
-//        }
 
     }
 
@@ -79,10 +73,12 @@ public class LessonContentAdapter extends RecyclerView.Adapter<LessonContentAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.ic_list_pic)
+        @Bind(R.id.iv_content_icon)
         ImageView icListPic;
-        @Bind(R.id.tv_name)
+        @Bind(R.id.tv_content_name)
         TextView tvName;
+        @Bind(R.id.btn_download)
+        ProgressBar btnDownload;
 
         public ViewHolder(View itemView) {
             super(itemView);
