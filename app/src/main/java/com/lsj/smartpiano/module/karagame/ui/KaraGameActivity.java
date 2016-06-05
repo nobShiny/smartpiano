@@ -81,7 +81,7 @@ public class KaraGameActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        recyclerViewList.setGridLayout(2);
+        recyclerViewList.setStaggeredGridLayout(2);
         service = KaraGameListRest.getClient();
     }
 
@@ -125,9 +125,7 @@ public class KaraGameActivity extends AppCompatActivity {
                     adapter.setOnItemClickListener(new KaraGameAdapter.OnRecyclerViewItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
-                            //                            Intent intent = new Intent(getActivity(), AdvanceContentActivity.class);
-                            //                            intent.putExtra("active_detail_url",mList.get(position).getUrl());
-                            //                            startActivity(intent);
+                            Toast.makeText(KaraGameActivity.this, "玩第"+(position+1)+"个游戏喽~", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {

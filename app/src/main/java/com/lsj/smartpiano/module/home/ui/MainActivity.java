@@ -49,15 +49,18 @@ public class MainActivity extends BaseDrawerActivity {
                     case R.id.menu_home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_list,
                                 new HomeFragment()).commit();
+                        toolbar.setBackgroundColor(MainActivity.this.getResources().getColor(R.color.colorPrimary));
                         break;
                     case R.id.menu_favorite:
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.flContentRoot,
 //                                new FavoriteFragment()).commit();
                         Toast.makeText(MainActivity.this, "待开发", Toast.LENGTH_SHORT).show();
+                        toolbar.setBackgroundColor(MainActivity.this.getResources().getColor(R.color.colorPrimaryDark));
                         break;
                     case R.id.menu_mine:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container_list,
                                 new MineFragment()).commit();
+                        toolbar.setBackgroundColor(MainActivity.this.getResources().getColor(R.color.colorAccent));
                         break;
                 }
                 item.setChecked(true);

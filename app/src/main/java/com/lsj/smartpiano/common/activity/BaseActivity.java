@@ -3,6 +3,8 @@ package com.lsj.smartpiano.common.activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +28,11 @@ import android.widget.Toast;
 import com.lsj.smartpiano.R;
 import com.lsj.smartpiano.module.search.adapter.LogQuickSearchAdapter;
 import com.lsj.smartpiano.module.search.bean.LogQuickSearch;
+import com.lsj.smartpiano.module.search.bean.SearchKaraBean;
+import com.lsj.smartpiano.module.search.bean.SearchSongBean;
+import com.lsj.smartpiano.module.search.bean.SearchVideoBean;
+import com.lsj.smartpiano.module.search.net.SearchListInterface;
+import com.lsj.smartpiano.module.search.net.SearchVideoListRest;
 import com.lsj.smartpiano.module.search.util.InitiateSearch;
 
 import java.util.Date;
@@ -34,6 +41,9 @@ import java.util.Set;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
 
 /**
  * Created by shiny_jia
@@ -46,8 +56,12 @@ public class BaseActivity extends AppCompatActivity {
     private InitiateSearch initiateSearch;
     private LogQuickSearchAdapter logQuickSearchAdapter;
     private Set<String> set = new HashSet<>();
+    @Bind(R.id.content)
+    CoordinatorLayout clContent;
+
     @Nullable
     @Bind(R.id.toolbar)
+    public
     Toolbar toolbar;
 
     @Nullable
@@ -58,11 +72,11 @@ public class BaseActivity extends AppCompatActivity {
     RelativeLayout view_search;
     @Bind(R.id.listContainer)
     ListView listContainer;
-//    @Bind(R.id.listView)
+    @Bind(R.id.listView)
     ListView listView;
     @Bind(R.id.card_search)
     CardView card_search;
-//    @Bind(R.id.marker_progress)
+    @Bind(R.id.marker_progress)
     ProgressBar marker_progress;
     @Bind(R.id.image_search_back)
     ImageView image_search_back;
@@ -85,12 +99,12 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void bindViews() {
         ButterKnife.bind(this);
-        marker_progress = (ProgressBar) findViewById(R.id.marker_progress);
+//        marker_progress = (ProgressBar) findViewById(R.id.marker_progress);
         marker_progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFFF"),
                         android.graphics.PorterDuff.Mode.MULTIPLY);
         initiateSearch = new InitiateSearch();
         logQuickSearchAdapter = new LogQuickSearchAdapter(this, 0, LogQuickSearch.all());
-        listView = (ListView) findViewById(R.id.listView);
+//        listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(logQuickSearchAdapter);
 
         setupToolbar();
@@ -112,7 +126,6 @@ public class BaseActivity extends AppCompatActivity {
                         case R.id.action_search:
                             IsAdapterEmpty();
                             initiateSearch.handleToolBar(BaseActivity.this, card_search, toolbar, view_search, listView, edit_text_search, line_divider);
-                            Toast.makeText(BaseActivity.this, "按我", Toast.LENGTH_SHORT).show();
                             break;
                         default:
                             break;
@@ -205,12 +218,69 @@ public class BaseActivity extends AppCompatActivity {
                         UpdateQuickSearch(edit_text_search.getText().toString());
                         listView.setVisibility(View.GONE);
                         toolbar_shadow.setVisibility(View.GONE);
-                        //TODO 请求网络拿搜索数据
-                        Toast.makeText(BaseActivity.this, "找到啦", Toast.LENGTH_SHORT).show();
+                        //请求网络拿搜索数据
+                        getDateWithKeyword(edit_text_search.getText().toString().trim());
                     }
                     return true;
                 }
                 return false;
+            }
+        });
+    }
+
+    private void getDateWithKeyword(final String keyword) {
+        SearchListInterface service = SearchVideoListRest.getClient();
+        Call<SearchVideoBean> call_video = service.getSearchVideoList(keyword,"1","20",
+                "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
+        call_video.enqueue(new Callback<SearchVideoBean>() {
+            @Override
+            public void onResponse(Response<SearchVideoBean> response) {
+                if(response.isSuccess()){
+                    SearchVideoBean result = response.body();
+                    int count = result.getData().getLessons().getNextCursor();
+                    Toast.makeText(BaseActivity.this,"找到有关“"+ keyword +"”的视频:" + count+"个", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+
+        Call<SearchKaraBean> call_kara = service.getSearchKarasList(keyword,"1","20",
+                "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
+        call_kara.enqueue(new Callback<SearchKaraBean>() {
+            @Override
+            public void onResponse(Response<SearchKaraBean> response) {
+                if(response.isSuccess()){
+                    SearchKaraBean result = response.body();
+                    int count = result.getData().getKaras().getNextCursor();
+                    Toast.makeText(BaseActivity.this,"找到有关“"+ keyword +"”的卡拉游戏:" + count+"个", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
+
+        Call<SearchSongBean> call_song = service.getSearchSongsList(keyword,"1","20",
+                "2.4.5", "android", "1tai", "1", "0", "0", "zh_CN");
+        call_song.enqueue(new Callback<SearchSongBean>() {
+            @Override
+            public void onResponse(Response<SearchSongBean> response) {
+                if(response.isSuccess()){
+                    SearchSongBean result = response.body();
+                    int count = result.getData().getSongs().getNextCursor();
+                    Toast.makeText(BaseActivity.this,"找到有关“"+ keyword +"”的曲谱:" + count+"个", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
             }
         });
     }
@@ -236,6 +306,12 @@ public class BaseActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         inboxMenuItem = menu.findItem(R.id.action_search);
         inboxMenuItem.setActionView(R.layout.menu_item_view);
+        inboxMenuItem.getActionView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(clContent, "Hello!", Snackbar.LENGTH_SHORT).show();
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 

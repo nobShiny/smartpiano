@@ -64,7 +64,6 @@ public class InitiateSearch {
             }
             editText.setText("");
             toolbarMain.setNavigationIcon(R.drawable.ic_menu_white);
-            toolbarMain.setTitle("Fit Health");
             toolbarMain.getMenu().clear();
             toolbarMain.inflateMenu(R.menu.menu_main);
             search.setEnabled(false);

@@ -1,9 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/root"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/root"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/content"
@@ -18,15 +17,9 @@
             android:layout_marginTop="60dp"
             />
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appBarLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <include
-                android:id="@+id/toolbar"
-                layout="@layout/view_feed_toolbar" />
-        </android.support.design.widget.AppBarLayout>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/view_feed_toolbar"/>
 
         <!--search start-->
         <RelativeLayout

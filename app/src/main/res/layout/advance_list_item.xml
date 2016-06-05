@@ -15,8 +15,8 @@
         <ImageView
             android:id="@+id/ic_list_pic"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
             />
 
         <TextView

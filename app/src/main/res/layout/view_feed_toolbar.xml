@@ -6,7 +6,6 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     app:elevation="@dimen/default_elevation"
-    app:layout_scrollFlags="scroll|enterAlways"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <ImageView

@@ -1,6 +1,5 @@
 package com.lsj.smartpiano.module.video.ui;
 
-import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.net.Uri;
