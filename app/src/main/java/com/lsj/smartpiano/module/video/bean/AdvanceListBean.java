@@ -1,12 +1,13 @@
 package com.lsj.smartpiano.module.video.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by shiny_jia
  * on 2016-05-18 17:11.
  */
-public class AdvanceListBean {
+public class AdvanceListBean implements Serializable{
 
     /**
      * courses : {"hasNext":false,"list":[{"purshaseType":0,"recommendPic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/recommend_pic.png","desc":"The ONE智能钢琴视频教学直播间主要面向钢琴零基础用户。 我们在课程中会逐步教授识谱，手型，指法，乐理等钢琴基础知识。 直播课程主页：http://online.1tai.com 参加直播课程请加QQ群：418084580","teacher":{"name":"佚名","id":0},"lessonCount":19,"pic":"http://dl.v1.1tai.com/video_courses/zh/zhibokechengjingxuan-chongerfei/pic.jpg","knowledges":"","name":"直播课－虫儿飞（初级琴童）","id":65}]}

@@ -1,7 +1,10 @@
 package com.lsj.smartpiano.module.video.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import com.lsj.smartpiano.module.video.bean.AdvanceListBean;
 import com.lsj.smartpiano.module.video.customui.PullLoadMoreRecyclerView;
 import com.lsj.smartpiano.module.video.net.VideoListInterface;
 import com.lsj.smartpiano.module.video.net.VideoListRest;
+import com.lsj.smartpiano.module.video.ui.AdvanceContentActivity;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -84,9 +88,15 @@ public class AdvanceVideoFragment extends Fragment {
                     adapter.setOnItemClickListener(new AdvanceListAdapter.OnRecyclerViewItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
-//                            Intent intent = new Intent(getActivity(), AdvanceContentActivity.class);
-//                            intent.putExtra("active_detail_url",mList.get(position).getUrl());
-//                            startActivity(intent);
+                            Intent intent = new Intent(getActivity(), AdvanceContentActivity.class);
+                            intent.putExtra("active_detail_url",mList.get(position).getPic());
+                            intent.putExtra("active_detail_name",mList.get(position).getName());
+                            intent.putExtra("active_detail_desc",mList.get(position).getDesc());
+                            intent.putExtra("active_detail_id",mList.get(position).getId());
+                            ActivityOptionsCompat options =
+                                    ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                                            view.findViewById(R.id.ic_list_pic), "哈哈");//getString(R.string.transition_book_img)
+                            ActivityCompat.startActivity(getActivity(),intent,options.toBundle());
                         }
                     });
                     Logger.json(response.toString());
