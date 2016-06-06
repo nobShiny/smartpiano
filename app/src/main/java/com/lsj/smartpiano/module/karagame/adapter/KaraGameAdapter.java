@@ -24,10 +24,10 @@ import butterknife.ButterKnife;
 public class KaraGameAdapter extends RecyclerView.Adapter<KaraGameAdapter.ViewHolder> {
 
     private Context mContext;
-    private List<KaraGameListBean.DataEntity.KarasEntity.LstEntity> dataList;
+    private List<KaraGameListBean.DataEntity.KarasEntity.ListEntity> dataList;
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
 
-    public KaraGameAdapter(Context context, List<KaraGameListBean.DataEntity.KarasEntity.LstEntity> dataList) {
+    public KaraGameAdapter(Context context, List<KaraGameListBean.DataEntity.KarasEntity.ListEntity> dataList) {
         this.dataList = dataList;
         mContext = context;
     }

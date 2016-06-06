@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lsj.smartpiano.R;
 import com.lsj.smartpiano.common.bean.KeyValueBean;
@@ -182,7 +183,7 @@ public class CourseInfoActivity extends AppCompatActivity {
                             }
                         }
                         for(int i = 0; i < course_level.length; i++){
-                            if(course_level[i].contains(key)){
+                            if(course_level[i].contains(value)){
                                 condition.setLevel(i);
                                 break;
                             }
@@ -245,11 +246,10 @@ public class CourseInfoActivity extends AppCompatActivity {
             adapter.setOnItemClickListener(new CourseAdapter.OnRecyclerViewItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
-
+                    Toast.makeText(CourseInfoActivity.this, position+"", Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        recyclerViewList.setPullLoadMoreCompleted();
     }
 
 }

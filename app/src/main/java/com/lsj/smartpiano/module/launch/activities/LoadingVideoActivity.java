@@ -3,10 +3,10 @@ package com.lsj.smartpiano.module.launch.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.lsj.smartpiano.R;
-import com.lsj.smartpiano.common.activity.BaseActivity;
 import com.lsj.smartpiano.module.home.ui.MainActivity;
 import com.lsj.smartpiano.module.launch.customui.LaunchVideoActivity;
 
@@ -18,7 +18,7 @@ import butterknife.OnClick;
  * Created by shiny_jia
  * on 2016-05-05 17:45.
  */
-public class LoadingVideoActivity extends BaseActivity {
+public class LoadingVideoActivity extends AppCompatActivity {
 
     @Bind(R.id.videoview)
     LaunchVideoActivity videoview;

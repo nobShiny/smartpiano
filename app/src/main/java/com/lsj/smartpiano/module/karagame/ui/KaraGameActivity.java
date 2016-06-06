@@ -50,7 +50,7 @@ public class KaraGameActivity extends AppCompatActivity {
     private List<KeyValueBean> mCategoryLists = new ArrayList<>();
     private KaraLevelAndCollection condition = new KaraLevelAndCollection();
 
-    private List<KaraGameListBean.DataEntity.KarasEntity.LstEntity> mList = new ArrayList<>();
+    private List<KaraGameListBean.DataEntity.KarasEntity.ListEntity> mList = new ArrayList<>();
     private KaraGameAdapter adapter;
 
     @Override
@@ -81,7 +81,18 @@ public class KaraGameActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        recyclerViewList.setStaggeredGridLayout(2);
+        recyclerViewList.setGridLayout(2);
+        recyclerViewList.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+            @Override
+            public void onRefresh() {
+                recyclerViewList.setPullLoadMoreCompleted();
+            }
+
+            @Override
+            public void onLoadMore() {
+                recyclerViewList.setPullLoadMoreCompleted();
+            }
+        });
         service = KaraGameListRest.getClient();
     }
 
@@ -96,7 +107,7 @@ public class KaraGameActivity extends AppCompatActivity {
                     if (mList != null) {
                         mList.clear();
                     }
-                    mList = result.getData().getKaras().getLst();
+                    mList = result.getData().getKaras().getList();
                     adapter = new KaraGameAdapter(KaraGameActivity.this, mList);
                     recyclerViewList.setAdapter(adapter);
                     categoryName = getResources().getStringArray(R.array.kara_category);
@@ -116,16 +127,16 @@ public class KaraGameActivity extends AppCompatActivity {
                     }
 
                     addItem(expandtabView, mCategoryLists,
-                            "娱乐",
+                            categoryName[0],
                             "类别选择");
                     addItem(expandtabView, mLevelLists,
-                            "全部级别",
+                            kara_level[0],
                             "难度级别");
 
                     adapter.setOnItemClickListener(new KaraGameAdapter.OnRecyclerViewItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
-                            Toast.makeText(KaraGameActivity.this, "玩第"+(position+1)+"个游戏喽~", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(KaraGameActivity.this, "玩第" + (position + 1) + "个游戏喽~", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
@@ -149,21 +160,21 @@ public class KaraGameActivity extends AppCompatActivity {
                 new PopOneListView.OnSelectListener() {
                     @Override
                     public void getValue(String key, String value) {
-                        for(int i = 0; i < categoryName.length; i++){
-                            if(categoryName[i].contains(key)){
-                                condition.setCollection(i);
+                        for (int i = 0; i < categoryName.length; i++) {
+                            if (categoryName[i].contains(value)) {
+                                condition.setCollection(i+1);
                                 break;
                             }
                         }
-                        for(int i = 0; i < kara_level.length; i++){
-                            if(kara_level[i].contains(key)){
+                        for (int i = 0; i < kara_level.length; i++) {
+                            if (kara_level[i].contains(value)) {
                                 condition.setLevel(i);
                                 break;
                             }
                         }
-                        if(condition.getLevel()==0){
+                        if (condition.getLevel() == 0) {
                             getSelectCategoryData();
-                        }else{
+                        } else {
                             getSelectCategoryWithLevelData();
                         }
                     }
@@ -214,16 +225,26 @@ public class KaraGameActivity extends AppCompatActivity {
             if (mList != null) {
                 mList.clear();
             }
-            mList = result.getData().getKaras().getLst();
+            mList = result.getData().getKaras().getList();
+            if(mList.size()==0){
+                Toast.makeText(KaraGameActivity.this, "没有更多数据了", Toast.LENGTH_SHORT).show();
+            }
             adapter = new KaraGameAdapter(KaraGameActivity.this, mList);
             recyclerViewList.setAdapter(adapter);
             adapter.setOnItemClickListener(new KaraGameAdapter.OnRecyclerViewItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
-
+                    Toast.makeText(KaraGameActivity.this, "玩第" + (position + 1) + "个游戏喽~", Toast.LENGTH_SHORT).show();
                 }
             });
         }
-        recyclerViewList.setPullLoadMoreCompleted();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (expandtabView != null) {
+            expandtabView.onExpandPopView();
+        }
     }
 }

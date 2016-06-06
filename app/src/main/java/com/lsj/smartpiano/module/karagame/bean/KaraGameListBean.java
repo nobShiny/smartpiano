@@ -8,8 +8,9 @@ import java.util.List;
  */
 public class KaraGameListBean {
 
+
     /**
-     * karas : {"hasNext":false,"lst":[{"picUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic.png?sig=1445508061000","picThumbUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic_thumb.jpg?sig=1445508061000","artist":"【弹唱专区】谭维维","bgm":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/bgm.mp3?sig=1445508061000","keyGuide":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/hard.mid?sig=1445508061000","name":"【专家级】康定情歌","id":221}]}
+     * karas : {"hasNext":false,"list":[{"picUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic.png?sig=1445508061000","picThumbUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic_thumb.jpg?sig=1445508061000","artist":"【弹唱专区】谭维维","bgm":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/bgm.mp3?sig=1445508061000","keyGuide":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/hard.mid?sig=1445508061000","name":"【专家级】康定情歌","id":221}]}
      */
 
     private DataEntity data;
@@ -25,7 +26,7 @@ public class KaraGameListBean {
     public static class DataEntity {
         /**
          * hasNext : false
-         * lst : [{"picUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic.png?sig=1445508061000","picThumbUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic_thumb.jpg?sig=1445508061000","artist":"【弹唱专区】谭维维","bgm":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/bgm.mp3?sig=1445508061000","keyGuide":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/hard.mid?sig=1445508061000","name":"【专家级】康定情歌","id":221}]
+         * list : [{"picUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic.png?sig=1445508061000","picThumbUrl":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/pic_thumb.jpg?sig=1445508061000","artist":"【弹唱专区】谭维维","bgm":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/bgm.mp3?sig=1445508061000","keyGuide":"http://dl.v1.1tai.com/ez_accomps/cn/i_am_a_singer/kangdingqingge/hard.mid?sig=1445508061000","name":"【专家级】康定情歌","id":221}]
          */
 
         private KarasEntity karas;
@@ -50,7 +51,7 @@ public class KaraGameListBean {
              * id : 221
              */
 
-            private List<LstEntity> lst;
+            private List<ListEntity> list;
 
             public boolean isHasNext() {
                 return hasNext;
@@ -60,15 +61,15 @@ public class KaraGameListBean {
                 this.hasNext = hasNext;
             }
 
-            public List<LstEntity> getLst() {
-                return lst;
+            public List<ListEntity> getList() {
+                return list;
             }
 
-            public void setLst(List<LstEntity> lst) {
-                this.lst = lst;
+            public void setList(List<ListEntity> list) {
+                this.list = list;
             }
 
-            public static class LstEntity {
+            public static class ListEntity {
                 private String picUrl;
                 private String picThumbUrl;
                 private String artist;

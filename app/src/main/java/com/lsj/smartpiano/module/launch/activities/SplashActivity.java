@@ -4,11 +4,11 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.lsj.smartpiano.R;
-import com.lsj.smartpiano.common.activity.BaseActivity;
 import com.lsj.smartpiano.common.constant.SmartPianoConfig;
 import com.lsj.smartpiano.common.utils.SharedPreferenceUtil;
 import com.lsj.smartpiano.module.home.ui.MainActivity;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by shiny_jia
  * on 2016-05-05 17:18.
  */
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends AppCompatActivity {
 
     //跳转延迟时间
     private static int delayedTime = 3000;
